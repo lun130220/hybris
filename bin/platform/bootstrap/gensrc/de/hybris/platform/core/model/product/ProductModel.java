@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 2018/1/7 下午 01:42:12                        ---
+ * --- Generated at 2018/1/7 下午 03:03:30                        ---
  * ----------------------------------------------------------------
  *  
  * [y] hybris Platform
@@ -17,6 +17,7 @@
  */
 package de.hybris.platform.core.model.product;
 
+import concerttours.model.BandModel;
 import de.hybris.bootstrap.annotations.Accessor;
 import de.hybris.platform.catalog.enums.ArticleApprovalStatus;
 import de.hybris.platform.catalog.enums.ArticleStatus;
@@ -219,6 +220,12 @@ public class ProductModel extends ItemModel
 	/** <i>Generated constant</i> - Attribute key of <code>Product.europe1Discounts</code> attribute defined at extension <code>europe1</code>. */
 	public static final String EUROPE1DISCOUNTS = "europe1Discounts";
 	
+	/** <i>Generated constant</i> - Attribute key of <code>Product.hashtag</code> attribute defined at extension <code>concerttours</code>. */
+	public static final String HASHTAG = "hashtag";
+	
+	/** <i>Generated constant</i> - Attribute key of <code>Product.band</code> attribute defined at extension <code>concerttours</code>. */
+	public static final String BAND = "band";
+	
 	
 	/** <i>Generated variable</i> - Variable of <code>Product.code</code> attribute defined at extension <code>core</code>. */
 	private String _code;
@@ -358,6 +365,12 @@ public class ProductModel extends ItemModel
 	/** <i>Generated variable</i> - Variable of <code>Product.europe1Discounts</code> attribute defined at extension <code>europe1</code>. */
 	private Collection<DiscountRowModel> _europe1Discounts;
 	
+	/** <i>Generated variable</i> - Variable of <code>Product.hashtag</code> attribute defined at extension <code>concerttours</code>. */
+	private String _hashtag;
+	
+	/** <i>Generated variable</i> - Variable of <code>Product.band</code> attribute defined at extension <code>concerttours</code>. */
+	private BandModel _band;
+	
 	
 	/**
 	 * <i>Generated constructor</i> - Default constructor for generic creation.
@@ -440,6 +453,20 @@ public class ProductModel extends ItemModel
 	public Map<ArticleStatus,String> getArticleStatus(final Locale loc)
 	{
 		return getPersistenceContext().getLocalizedValue(ARTICLESTATUS, loc);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.band</code> attribute defined at extension <code>concerttours</code>. 
+	 * @return the band
+	 */
+	@Accessor(qualifier = "band", type = Accessor.Type.GETTER)
+	public BandModel getBand()
+	{
+		if (this._band!=null)
+		{
+			return _band;
+		}
+		return _band = getPersistenceContext().getValue(BAND, _band);
 	}
 	
 	/**
@@ -734,6 +761,20 @@ public class ProductModel extends ItemModel
 			return _features;
 		}
 		return _features = getPersistenceContext().getValue(FEATURES, _features);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.hashtag</code> attribute defined at extension <code>concerttours</code>. 
+	 * @return the hashtag - hashtag of concert tour for social media
+	 */
+	@Accessor(qualifier = "hashtag", type = Accessor.Type.GETTER)
+	public String getHashtag()
+	{
+		if (this._hashtag!=null)
+		{
+			return _hashtag;
+		}
+		return _hashtag = getPersistenceContext().getValue(HASHTAG, _hashtag);
 	}
 	
 	/**
@@ -1248,6 +1289,17 @@ public class ProductModel extends ItemModel
 	}
 	
 	/**
+	 * <i>Generated method</i> - Setter of <code>Product.band</code> attribute defined at extension <code>concerttours</code>. 
+	 *  
+	 * @param value the band
+	 */
+	@Accessor(qualifier = "band", type = Accessor.Type.SETTER)
+	public void setBand(final BandModel value)
+	{
+		_band = getPersistenceContext().setValue(BAND, value);
+	}
+	
+	/**
 	 * <i>Generated method</i> - Setter of <code>Product.buyerIDS</code> attribute defined at extension <code>catalog</code>. 
 	 *  
 	 * @param value the buyerIDS
@@ -1466,6 +1518,17 @@ public class ProductModel extends ItemModel
 	public void setFeatures(final List<ProductFeatureModel> value)
 	{
 		_features = getPersistenceContext().setValue(FEATURES, value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of <code>Product.hashtag</code> attribute defined at extension <code>concerttours</code>. 
+	 *  
+	 * @param value the hashtag - hashtag of concert tour for social media
+	 */
+	@Accessor(qualifier = "hashtag", type = Accessor.Type.SETTER)
+	public void setHashtag(final String value)
+	{
+		_hashtag = getPersistenceContext().setValue(HASHTAG, value);
 	}
 	
 	/**

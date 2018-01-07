@@ -15,36 +15,85 @@
 <!--
 	ATTENTION: This is just an example file. You have to edit it according to your needs.
 -->
-
-<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-			xsi:noNamespaceSchemaLocation="items.xsd">
-
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="items.xsd">
+	<enumtypes>
+		<enumtype autocreate="true" code="ConcertType" dynamic="false" generate="true">
+			<value code="openair"/>
+			<value code="indoor"/>
+		</enumtype>
+		<enumtype autocreate="true" code="MusicType" dynamic="true" generate="true"/>
+	</enumtypes>
+	<relations>
+		<relation autocreate="true" code="Product2RockBand" generate="false" localized="false">
+			<sourceElement cardinality="many" collectiontype="set" ordered="false" qualifier="tours" type="Product">
+				<modifiers optional="true" read="true" search="true" write="true"/>
+			</sourceElement>
+			<targetElement cardinality="one" qualifier="band" type="Band">
+				<modifiers optional="true" read="true" search="true" write="true"/>
+			</targetElement>
+		</relation>
+		<relation autocreate="true" code="Band2MusicType" generate="false" localized="false">
+			<deployment table="Band2MusicType" typecode="30269"/>
+			<sourceElement cardinality="many" collectiontype="set" ordered="false" qualifier="bands" type="Band">
+				<modifiers optional="true" read="true" search="true" write="true"/>
+			</sourceElement>
+			<targetElement cardinality="many" qualifier="types" type="MusicType">
+				<modifiers optional="true" read="true" search="true" write="true"/>
+			</targetElement>
+		</relation>
+	</relations>
 	<itemtypes>
-<!--
+		<itemtype autocreate="false" code="Product" generate="true">
+			<attributes>
+				<attribute qualifier="hashtag" type="java.lang.String">
+					<description>hashtag of concert tour for social media</description>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+		<itemtype autocreate="true" code="Band" generate="true">
+			<deployment table="Bands" typecode="30268"/>
+			<attributes>
+				<attribute qualifier="code" type="java.lang.String">
+					<description>short unique code of band</description>
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="name" type="java.lang.String">
+					<description>name of band</description>
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="history" type="java.lang.String">
+					<description>history of band</description>
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="albumSales" type="java.lang.Long">
+					<description>official global album sales</description>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+		<itemtype autocreate="true" code="Concert" extends="VariantProduct" generate="true">
+			<attributes>
+				<attribute qualifier="venue" type="java.lang.String">
+					<description>venue of concert</description>
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="date" type="java.util.Date">
+					<description>date of concert</description>
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="concertType" type="ConcertType">
+					<description>type of concert (indoors or open air)</description>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+		<!--
 		<itemtype generate="true"
 		   code="MyProduct"
 		   jaloclass="concerttours.jalo.MyProduct"
 		   extends="Product"
 		   autocreate="true"
-	   >
-			<attributes>
-				<attribute qualifier="myExampleInitialStringField" type="java.lang.String">
-					<description>My Example Initial String Value</description>
-					<modifiers initial="true"/>
-					<persistence type="property"/>
-				</attribute>
-
-				<attribute qualifier="myExampleBooleanField" type="java.lang.Boolean">
-					<description>Example Initial Boolean Field</description>
-               <persistence type="property"/>
-				</attribute>
-
-				<attribute qualifier="media" type="Media">
-					<persistence type="property"/>
-				</attribute>
-
-			</attributes>
-		</itemtype>
--->
+	   ><attributes><attribute qualifier="myExampleInitialStringField" type="java.lang.String"><description>My Example Initial String Value</description><modifiers initial="true"/><persistence type="property"/></attribute><attribute qualifier="myExampleBooleanField" type="java.lang.Boolean"><description>Example Initial Boolean Field</description><persistence type="property"/></attribute><attribute qualifier="media" type="Media"><persistence type="property"/></attribute></attributes></itemtype>-->
 	</itemtypes>
 </items>

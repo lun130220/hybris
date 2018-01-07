@@ -133,6 +133,12 @@
 				<Loader platformHome="C:\Users\lun13\Desktop\hybris-commerce-suite-5.7.0.3\hybris\bin\platform" className="de.hybris.tomcat.HybrisWebappLoader" deployName="default" />
 			</Context>
 
+			<!-- 'concerttours' extension's context for tenant 'master' -->
+			<Context path="/concerttours" docBase="C:\Users\lun13\Desktop\hybris-commerce-suite-5.7.0.3\hybris\bin\custom\concerttours/web/webroot" >
+				<Manager pathname="" />
+				<Loader platformHome="C:\Users\lun13\Desktop\hybris-commerce-suite-5.7.0.3\hybris\bin\platform" className="de.hybris.tomcat.HybrisWebappLoader" deployName="default" />
+			</Context>
+
 
       </Host>
 

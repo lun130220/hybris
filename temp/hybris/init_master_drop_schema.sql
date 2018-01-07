@@ -548,6 +548,12 @@ DROP TABLE carts IF EXISTS;
 DROP TABLE cartentries IF EXISTS;
 
 
+DROP TABLE bands IF EXISTS;
+
+
+DROP TABLE band2musictype IF EXISTS;
+
+
 DROP TABLE attributedescriptorslp IF EXISTS;
 
 
